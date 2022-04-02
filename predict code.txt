@@ -1,0 +1,65 @@
+from keras.models import load_model
+from keras.preprocessing import image
+from keras.applications.vgg16 import preprocess_input
+import numpy as np
+
+# (1)PREDICTION USING VGG16
+
+model = load_model('C:\\Users\\MCHOME\\Desktop\\PBL B5\\PBL_VGG16\\model_vgg16.h5')
+
+img=image.load_img('E:\\chest_xray\\val\\NORMAL\\NORMAL2-IM-1436-0001.jpeg',target_size=(224,224))
+
+x=image.img_to_array(img)
+x=np.expand_dims(x,axis=0)
+img_data=preprocess_input(x)
+classes=model.predict(img_data)
+
+
+# (2)PREDICTION USING VGG19
+
+model = load_model('C:\\Users\\MCHOME\\Desktop\\PBL B5\\PBL_VGG19\\model_vgg19.h5')
+
+img=image.load_img('E:\\chest_xray\\val\\NORMAL\\NORMAL2-IM-1436-0001.jpeg',target_size=(224,224))
+
+x=image.img_to_array(img)
+x=np.expand_dims(x,axis=0)
+img_data=preprocess_input(x)
+classes=model.predict(img_data)
+
+
+# (3)PREDICTION USING iNCEPTION v3
+
+model = load_model('C:\\Users\\MCHOME\\Desktop\\PBL B5\\PBL_InceptionV3\\model_inceptionV3.h5')
+
+img=image.load_img('E:\\chest_xray\\val\\NORMAL\\NORMAL2-IM-1436-0001.jpeg',target_size=(224,224))
+
+x=image.img_to_array(img)
+x=np.expand_dims(x,axis=0)
+img_data=preprocess_input(x)
+classes=model.predict(img_data)
+
+
+# (4)PREDICTION USING RESNET50
+
+model = load_model('C:\\Users\\MCHOME\\Desktop\\PBL B5\\PBL_Resnet50\\model_resnet50.h5')
+
+img=image.load_img('E:\\chest_xray\\val\\NORMAL\\NORMAL2-IM-1436-0001.jpeg',target_size=(224,224))
+
+x=image.img_to_array(img)
+x=np.expand_dims(x,axis=0)
+img_data=preprocess_input(x)
+classes=model.predict(img_data)
+
+
+# (5)PREDICTION USING DENSENET121
+
+model = load_model('C:\\Users\\MCHOME\\Desktop\\PBL B5\\PBL_DenseNet121\\model_densenet121.h5')
+
+img=image.load_img('E:\\chest_xray\\val\\NORMAL\\NORMAL2-IM-1436-0001.jpeg',target_size=(224,224))
+
+x=image.img_to_array(img)
+x=np.expand_dims(x,axis=0)
+img_data=preprocess_input(x)
+classes=model.predict(img_data)
+
+
